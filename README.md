@@ -6,7 +6,7 @@ java.lang.IllegalStateException: Could not find current request via RequestConte
 
 ## Cause
 
-[ControllerLinkBuilder](https://github.com/spring-projects/spring-hateoas/blob/master/src/main/java/org/springframework/hateoas/mvc/ControllerLinkBuilder.java) in spring-hateoas uses [RequestContextHolder](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/context/request/RequestContextHolder.java) from spring-web to retrieve the current request attributes, however because they are Thread Local they will not be available to the Threads spawned by parallelString() causing the above Exception.
+[ControllerLinkBuilder](https://github.com/spring-projects/spring-hateoas/blob/master/src/main/java/org/springframework/hateoas/mvc/ControllerLinkBuilder.java) in spring-hateoas uses [RequestContextHolder](https://github.com/spring-projects/spring-framework/blob/master/spring-web/src/main/java/org/springframework/web/context/request/RequestContextHolder.java) from spring-web to retrieve the current request attributes, however because they are Thread Local they will not be available to the Threads spawned by parallelStream() causing the above Exception.
 
 ## Workaround
 
