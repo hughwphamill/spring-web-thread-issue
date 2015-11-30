@@ -24,8 +24,6 @@ public class TestController {
 
     @RequestMapping("/responses")
     public ResponseEntity<List<Model>> responses() {
-        RequestContextHolder.setRequestAttributes(RequestContextHolder.getRequestAttributes(), true);
-        long start = System.currentTimeMillis();
         List<String> names = Stream.iterate(1, i -> i++)
                 .map(i -> "Response" + i)
                 .limit(LIMIT)
@@ -35,13 +33,11 @@ public class TestController {
                 .map(n -> generateResponse(n))
                 .collect(Collectors.toList());
 
-        System.out.println("Elapsed: " + (System.currentTimeMillis() - start) + "ms." );
         return new ResponseEntity<>(models, HttpStatus.OK);
     }
 
     @RequestMapping("/responsesParallel")
     public ResponseEntity<List<Model>> responsesParallel() {
-        long start = System.currentTimeMillis();
         List<String> names = Stream.iterate(1, i -> i++)
                 .map(i -> "Response" + i)
                 .limit(LIMIT)
@@ -51,7 +47,6 @@ public class TestController {
                 .map(n -> generateResponse(n))
                 .collect(Collectors.toList());
 
-        System.out.println("Elapsed: " + (System.currentTimeMillis() - start) + "ms." );
         return new ResponseEntity<>(models, HttpStatus.OK);
     }
 
