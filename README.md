@@ -11,3 +11,7 @@ java.lang.IllegalStateException: Could not find current request via RequestConte
 ## Workaround
 
 Use .stream() instead of .parallelStream()
+
+## JIRA Issue
+
+https://jira.spring.io/browse/SPR-13743
