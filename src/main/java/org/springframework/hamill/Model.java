@@ -14,7 +14,8 @@ public class Model extends ResourceSupport {
         return name;
     }
 
-    public void setName(String name) {
+    public Model setName(String name) {
         this.name = name;
+        return this;
     }
 }
